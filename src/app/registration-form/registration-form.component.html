@@ -1,0 +1,55 @@
+<p>Registration Component-html!</p>
+<app-home></app-home>
+<h3>Create a new registration</h3>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Admitted Date</label>
+            <input class="form-control" type="date" formControlName="admittedDate"/>
+            <small class="text-danger" *ngIf="registerForm.get('admittedDate')?.invalid && registerForm.get('admittedDate')?.touched">
+                Admitted-Date Date is required.
+            </small>
+
+        </div>
+        <div class="col">
+            <label class="form-label">Left-Out Date:</label>
+            <input class="form-Control" type="date" formControlName="leftoutDate"/>
+            <small class="text-danger" *ngIf="registerForm.get('leftoutDate')?.invalid && registerForm.get('leftoutDate')?.touched">
+                Left-Out Date is required.
+            </small>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Student Name:</label>
+            <input class="form-control" type="text" formControlName="studentName"/>
+            <small class="text-danger" *ngIf="registerForm.get('studentName')?.invalid && registerForm.get('studentName')?.touched">
+                Student Name is required.
+            </small>
+        </div>
+
+        <div class="col">
+            <label class="form-label">Student Email:</label>
+            <input class="form-control" type="email" formControlName="studentEmail"/>
+            <small class="text-danger" *ngIf="registerForm.get('studentEmail')?.invalid && registerForm.get('studentEmail')?.touched">
+                Email is required.
+            </small>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <label class="form-label">Roll Number:</label>
+            <input class="form-control" type="number" formControlName="rollNumber"/>
+            <small class="text-danger" *ngIf="registerForm.get('rollNumber')?.invalid && registerForm.get('rollNumber')?.touched">
+                Roll Number is required.
+            </small>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">
+        Submit
+    </button>  
+</form>
